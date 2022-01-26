@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+        //random selection for the computer's choice
+        function computerPlay() {
+            //creates an array of possible choices
+            let choices = ['Rock', 'Paper', 'Scissors'];
+
+            //selects a random int value from 0 - 2 representing the contents of the array which also represents one of the strings
+            const randomChoice = choices[Math.floor(Math.random() * choices.length)];
+            //returns the random string selection
+            return randomChoice;
+        }
+
+        //setting variables for the two parameter inputs
+        const computerSelection = computerPlay().toLowerCase();
+        const playerSelection = 'rock';
+
+        console.log(computerSelection);
+
+        //creating function to play a round
+        function playRound(playerSelection, computerSelection) {
+            //making the inputs case insensitive
+            playerSelection.toLowerCase();
+
+            //running through possibilites
+            if (playerSelection == "rock") {
+                if (computerSelection == 'rock') {
+                    return "Tie";
+                }
+                else if (computerSelection == 'paper') {
+                    return "You Lose, Paper beats Rock";
+                }
+                else if (computerSelection == 'scissors') {
+                    return "You Win, Rock beats Scissors";
+                }
+            }
+            else if (playerSelection == 'paper') {
+                if (computerSelection == 'paper') {
+                    return "Tie";
+                }
+                else if (computerSelection == 'rock') {
+                    return "You Win, Paper beats Rock";
+                }
+                else if (computerSelection == 'scissors') {
+                    return "You Lose, Scissors beats Paper";
+                }
+            }
+            else if (playerSelection == 'scissors') {
+                if (computerSelection == 'scissors') {
+                    return "Tie";
+                }
+                else if (computerSelection == 'paper') {
+                    return "You Win, Scissors beats Paper";
+                }
+                else if (computerSelection == 'rock') {
+                    return "You Lose, Rock beats Scissors";
+                }
+            }
+            else {
+                return "Invalid Input";
+            }
+        }
+
+        console.log(playRound(playerSelection,computerSelection));
+
+    </script>
+</body>
+</html>
